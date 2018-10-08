@@ -19,7 +19,6 @@ public class LoginPageTest {
         baseUrl = "http://apiato.wp-funnel.com/#!/";
         browser = "chrome";
     }
-//test
 
     @Test
     public void loginTest() {
