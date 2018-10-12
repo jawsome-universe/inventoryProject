@@ -3,6 +3,8 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
+import java.util.Random;
+
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.sleep;
@@ -10,7 +12,7 @@ import static java.lang.String.format;
 import static org.openqa.selenium.By.xpath;
 
 public class CreateCustomerPage {
-    public static String code = "123456";
+
 
     private By customerNameField = xpath("//*[@id='organization-name']");
     private By customerDescriptionField = xpath("//*[@id='organization-description']");
@@ -43,7 +45,7 @@ public class CreateCustomerPage {
         $(customerPasswordField).setValue(password);
         return this;
     }
-    public CreateCustomerPage typeCustomerCode() {
+    public CreateCustomerPage typeCustomerCode(String code) {
         $(customerCodeField).setValue(code);
         return this;
     }
@@ -75,6 +77,34 @@ public class CreateCustomerPage {
     }
 
     //setSelection(value) - for checkboxes
+
+
+    //Generate random number
+    public static String generateRandomNumber() {
+        String randomString = "";
+
+        for (int i = 0; i < 6; i++) {
+            Random rand = new Random();
+            int randomNum = rand.nextInt((9 - 1) + 1) + 1;
+            randomString += Integer.toString(randomNum);
+        }
+        return randomString;
+    }
+
+
+    //Generate random word
+    public static String generateRandomWord() {
+        Random random = new Random();
+
+        char[] word = new char[random.nextInt(8)+5]; // words of length 3 through 10. (1 and 2 letter words are boring.)
+        for(int j = 0; j < word.length; j++)
+        {
+            word[j] = (char)('a' + random.nextInt(26));
+        }
+        String randomWord = new String(word);
+        return randomWord;
+    }
+
 }
 
 
