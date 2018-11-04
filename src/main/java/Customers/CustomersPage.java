@@ -13,7 +13,7 @@ import static org.openqa.selenium.By.xpath;
 public class CustomersPage {
 
     private By userRoleDisplaying = xpath("//*[@class='dropdown-toggle']");
-    private By addCustomerButton = xpath("//*[@class='btn btn-blue']");
+    private By addCustomerButton = xpath("//*[@id='pageDashboard']/div[3]/a");
 
     private By createdCustomerRaw = xpath("//*[@class='grid-table__row clearfix ng-scope ng-isolate-scope'][1]");
 
@@ -39,9 +39,9 @@ public class CustomersPage {
 
 
     public void clickOnAddButton() {
-        $(addCustomerButton).waitUntil(Condition.enabled, 5000);
+        $(addCustomerButton).waitUntil(Condition.enabled, 6000);
         $(addCustomerButton).click();
-        sleep(300);
+        sleep(1000);
     }
 
 
